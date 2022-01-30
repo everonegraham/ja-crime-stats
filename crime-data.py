@@ -3,13 +3,15 @@ from requests import get
 from selenium import webdriver
 from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
-
-driver = webdriver.Chrome()
-driver.implicitly_wait(60)
-
-
+from selenium.webdriver.common.keys import Keys
 
 URL = "https://jcf.gov.jm/stats/"
+
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--window-size=1920x1080")
+driver = webdriver.Chrome(options=chrome_options)
+driver.implicitly_wait(60)
 
 driver.get(URL)
 
